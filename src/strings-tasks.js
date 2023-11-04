@@ -302,8 +302,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -344,8 +344,16 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let str1 = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (alphabet.includes(str[i].toLowerCase())) {
+      str1 += str[i].toLowerCase();
+    }
+  }
+  const newStr = str1.split('').reverse().join('');
+  return str1 === newStr;
 }
 
 /**
@@ -389,8 +397,20 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVASCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const lettersLow = 'abcdefghijklmnopqrstuvwxyz';
+  const lettersUp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (lettersLow.includes(str[i])) {
+      newStr += str[i].toUpperCase();
+    } else if (lettersUp.includes(str[i])) {
+      newStr += str[i].toLowerCase();
+    } else {
+      newStr += str[i];
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -454,8 +474,8 @@ function unbracketTag(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
